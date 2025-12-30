@@ -1,0 +1,57 @@
+" <Leader> set to <space>
+let mapleader = " "
+let maplocalleader = " "
+
+" Basic options
+set number
+set relativenumber
+set mouse=a
+
+set noundofile
+" set undofile
+set clipboard=unnamedplus
+set breakindent
+set ignorecase
+set smartcase
+set signcolumn=yes
+set updatetime=250
+set timeoutlen=300
+set splitright
+set splitbelow
+set list
+set listchars=tab:»\ ,trail:·,nbsp:␣
+set cursorline
+set scrolloff=10
+set confirm
+
+" Keymaps
+nnoremap <leader>rj :w<CR>:!javac % && java %:r<CR>
+nnoremap <leader>rP :w<CR>:term python3 %<CR>
+nnoremap <leader>rh :w<CR>:!open %<CR>
+nnoremap <leader>rp :w<CR>:!python3 %<CR>
+tnoremap <Esc><Esc> <C-\><C-n>
+
+nnoremap <leader>w :w<CR>
+nnoremap <leader>q :q<CR>
+nnoremap <leader>x :x<CR>
+nnoremap <leader>e :e  
+nnoremap <leader>t :terminal<CR>
+
+nnoremap <Tab> :bnext<CR>
+nnoremap <S-Tab> :bprevious<CR>
+nnoremap <leader>bn :enew<CR>
+nnoremap <leader>bd :bdelete<CR>
+
+nnoremap <Esc> :nohlsearch<CR>
+
+syntax on
+colorscheme slate
+
+" Yank to system clipboard
+nnoremap <leader>y "+y
+vnoremap <leader>y "+y
+
+" Paste from system clipboard
+nnoremap <leader>p "+p
+vnoremap <leader>p "+p
+
