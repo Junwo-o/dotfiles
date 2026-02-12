@@ -3,7 +3,7 @@
 [pull]
 	rebase = false
 [core]
-	editor = nvim
+	editor = vim
 [user]
 	name = Junwoo Lee
 	email = lee.junwoo@berkeley.edu
