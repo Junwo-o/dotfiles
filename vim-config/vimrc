@@ -10,6 +10,7 @@ set mouse=a
 set noundofile
 " set undofile
 set clipboard=unnamedplus
+set clipboard=unnamed
 set breakindent
 set ignorecase
 set smartcase
@@ -55,4 +56,5 @@ vnoremap <leader>y "+y
 nnoremap <leader>p "+p
 vnoremap <leader>p "+p
 
-set clipboard=unnamed
+let &t_SI = "\e[5 q"
+let &t_EI = "\e[1 q"
