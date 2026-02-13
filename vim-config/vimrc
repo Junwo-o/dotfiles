@@ -9,7 +9,8 @@ set mouse=a
 
 set noundofile
 " set undofile
-set clipboard=unnamed, unnamedplus
+set clipboard=unnamed
+set clipboard=unnamedplus
 set breakindent
 set ignorecase
 set smartcase
