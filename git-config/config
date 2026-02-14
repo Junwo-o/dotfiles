@@ -1,0 +1,7 @@
+[pull]
+	rebase = false
+[core]
+	editor = vim
+[user]
+	name = Junwoo Lee
+	email = lee.junwoo@berkeley.edu
