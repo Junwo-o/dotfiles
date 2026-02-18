@@ -56,5 +56,12 @@ vnoremap <leader>y "+y
 nnoremap <leader>p "+p
 vnoremap <leader>p "+p
 
-let &t_SI = "\e[5 q"
-let &t_EI = "\e[1 q"
+" 1 Blinking Block
+" 2 2 Solid Block
+" 3 Blinking Underline
+" 4 Solid Underline
+" 5 Blinking Vertical Bar
+" 6 Solid Vertical Bar
+let &t_SI = "\e[5 q" " Insert mode (line)
+let &t_SR = "\e[3 q" " Replace mode (underline)
+let &t_EI = "\e[1 q" " Normal mode (block)
