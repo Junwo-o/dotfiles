@@ -26,8 +26,10 @@ link_file() {
 echo "Starting dotfiles installation..."
 
 # --- Add your files here ---
-link_file "$DOTFILES_DIR/zshrc"           "$HOME/.zshrc"
-link_file "$DOTFILES_DIR/ghostty_config"  "$HOME/.config/ghostty/config"
-link_file "$DOTFILES_DIR/vimrc"           "$HOME/.vimrc"
+link_file "$DOTFILES_DIR/zshrc"           	"$HOME/.zshrc"
+link_file "$DOTFILES_DIR/ghostty_config"  	"$HOME/.config/ghostty/config"
+link_file "$DOTFILES_DIR/vim-config/vimrc"	"$HOME/.vimrc"
+link_file "$DOTFILES_DIR/git-config/config"     "$HOME/.gitconfig"
+link_file "$DOTFILES_DIR/ghostty-config/config" "$HOME/.config/ghostty/config"
 
 echo "Done! Restart your terminal or run 'source ~/.zshrc' to see changes."
