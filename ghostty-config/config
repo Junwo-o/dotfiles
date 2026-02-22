@@ -1,5 +1,5 @@
 # Set your preferred font (JetBrains Mono is a solid choice)
-font-family = "Roboto Mono"
+font-family = "JetBrains Mono"
 
 # Set the starting font size
 font-size = 16
