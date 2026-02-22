@@ -19,3 +19,6 @@ export PATH="/opt/homebrew/bin:$PATH"
 
 # 2. Create a shortcut for the old Intel version
 alias ibrew='arch -x86_64 /usr/local/bin/brew'
+
+# vim motions within terminal
+bindkey -v
