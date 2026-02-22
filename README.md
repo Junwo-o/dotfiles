@@ -1,6 +1,6 @@
 # dotfiles
 
-~/.vimrc, ~/.gitconfig, ~/.zshrc, ~/.config/ghostty/config are symlinked (a shorcut) to their respective files in dotfiles directory
+ln -sf {source} {destination}
 
 # vscode-config
 🛠️ Setting Up Your VS Code Environment Using This Repo
