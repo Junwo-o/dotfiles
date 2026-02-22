@@ -31,5 +31,6 @@ link_file "$DOTFILES_DIR/ghostty_config"  	"$HOME/.config/ghostty/config"
 link_file "$DOTFILES_DIR/vim-config/vimrc"	"$HOME/.vimrc"
 link_file "$DOTFILES_DIR/git-config/config"     "$HOME/.gitconfig"
 link_file "$DOTFILES_DIR/ghostty-config/config" "$HOME/.config/ghostty/config"
+link_file "$DOTFILES_DIR/gitignore_global"	"$HOME/.gitignore_global"
 
 echo "Done! Restart your terminal or run 'source ~/.zshrc' to see changes."
