@@ -1,7 +1,19 @@
+[init]
+	defaultBranch = main
 [pull]
 	rebase = false
 [core]
 	editor = vim
+	excludesfile = ~/.gitignore_global
 [user]
 	name = Junwoo Lee
 	email = lee.junwoo@berkeley.edu
+[http]
+	postBuffer = 157286400
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[credential]
+	helper = osxkeychain
