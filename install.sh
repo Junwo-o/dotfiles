@@ -14,8 +14,8 @@ link_file() {
 
     # If the destination exists and is not a symlink, back it up
     if [ -f "$dest" ] && [ ! -L "$dest" ]; then
-        echo "Backing up existing file: $dest to $dest.backup"
-        mv "$dest" "$dest.backup"
+        echo "Backing up existing file: $dest to $dest.bak"
+        mv "$dest" "$dest.bak"
     fi
 
     # Create the symlink (the -f flag forces it to overwrite old symlinks)
