@@ -13,7 +13,7 @@ link_file() {
     mkdir -p "$(dirname "$dest")"
 
     # If the destination exists and is not a symlink, back it up
-    if [ -f "$dest" ] && [ ! -L "$dest" ]; then
+    if [ -e "$dest" ] && [ ! -L "$dest" ]; then
         echo "Backing up existing file: $dest to $dest.bak"
         mv "$dest" "$dest.bak"
     fi
@@ -31,5 +31,6 @@ link_file "$DOTFILES_DIR/vimrc"			"$HOME/.vimrc"
 link_file "$DOTFILES_DIR/gitconfig"     	"$HOME/.gitconfig"
 link_file "$DOTFILES_DIR/ghosttyconfig" 	"$HOME/.config/ghostty/config"
 link_file "$DOTFILES_DIR/gitignore_global"	"$HOME/.gitignore_global"
+link_file "$DOTFILES_DIR/lazyvim"		"$HOME/.config/lazyvim"
 
 echo "Done! Restart your terminal or run 'source ~/.zshrc' to see changes."

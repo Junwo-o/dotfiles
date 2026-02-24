@@ -40,8 +40,11 @@ EOF
 # 1. Use the Silicon Homebrew by default
 export PATH="/opt/homebrew/bin:$PATH"
 
-# 2. Create a shortcut for the old Intel version
+# 2. Shortcut for the old Intel version
 alias ibrew='arch -x86_64 /usr/local/bin/brew'
+
+alias kickstart='NVIM_APPNAME=kickstart nvim'
+alias lazyvim='NVIM_APPNAME=lazyvim nvim'
 
 # vim motions within terminal
 bindkey -v
