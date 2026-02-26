@@ -14,6 +14,7 @@ if ! command -v brew >/dev/null 2>&1; then
         test -d ~/.linuxbrew && eval "$(~/.linuxbrew/bin/brew shellenv)"
         test -d /home/linuxbrew/.linuxbrew && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
     fi
+fi
 
 # Ensure brew is available in the current script session
 if [[ -d /home/linuxbrew/.linuxbrew ]]; then
@@ -25,8 +26,6 @@ elif [[ -x /opt/homebrew/bin/brew ]]; then
 elif [[ -x /usr/local/bin/brew ]]; then
     # Intel Mac (MacBook)
     eval "$(/usr/local/bin/brew shellenv)"
-fi
-
 fi
 
 # Homebrew Setup (Cross-Platform)
@@ -121,11 +120,7 @@ if [[ -n "$ZSH_PATH" && "$SHELL" != "$ZSH_PATH" ]]; then
     fi
 fi
 
-# Change default shell to Zsh if it isn't already
-if [ "$SHELL" != "$(which zsh)" ]; then
-    echo "Switching default shell to Zsh..."
-    sudo chsh -s "$(which zsh)" "$USER"
-fi
 # Add this to the very bottom of install.sh if you want
 echo "Installation complete! Reloading shell..."
+
 exec zsh -l
