@@ -58,3 +58,5 @@ alias lazyvim='NVIM_APPNAME=lazyvim nvim'
 
 # vim motions within terminal
 bindkey -v
+
+PROMPT='%n@%m:%~%# '
