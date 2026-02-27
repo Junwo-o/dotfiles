@@ -79,13 +79,14 @@ link_file() {
 
     # Create the symlink (the -f flag forces it to overwrite old symlinks)
     echo "Linking $dest -> $src"
-    ln -sf "$src" "$dest"
+    ln -sfn "$src" "$dest"
 }
 
 echo "Starting dotfiles installation..."
 
 # --- Add your files here ---
 link_file "$DOTFILES_DIR/zshrc" "$HOME/.zshrc"
+link_file "$DOTFILES_DIR/bashrc" "$HOME/.bashrc"
 link_file "$DOTFILES_DIR/vimrc" "$HOME/.vimrc"
 link_file "$DOTFILES_DIR/gitconfig" "$HOME/.gitconfig"
 link_file "$DOTFILES_DIR/ghosttyconfig" "$HOME/.config/ghostty/config"
