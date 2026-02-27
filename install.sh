@@ -46,6 +46,35 @@ if [ -f "$DOTFILES_DIR/Brewfile" ]; then
   brew bundle --file="$DOTFILES_DIR/Brewfile"
 fi
 
+BREWFILE="$DOTFILES_DIR/Brewfile"
+HASH_FILE="$HOME/.brewfile_hash"
+
+# "./install.sh --brew" in order to sync brew
+if [[ "$1" == "--brew" ]]; then
+    echo "Checking Homebrew dependencies..."
+
+    # 1. Generate the current fingerprint (Portable for Mac/Linux)
+    if command -v md5 >/dev/null; then
+        CURRENT_HASH=$(md5 -q "$BREWFILE")
+    else
+        CURRENT_HASH=$(md5sum "$BREWFILE" | awk '{ print $1 }')
+    fi
+
+    # 2. Compare with the last saved fingerprint
+    LAST_HASH=$(cat "$HASH_FILE" 2>/dev/null)
+
+    if [ "$CURRENT_HASH" != "$LAST_HASH" ]; then
+        echo "Changes detected in Brewfile. Running bundle..."
+        brew bundle --file="$BREWFILE" --no-upgrade
+        
+        # 3. Save the new fingerprint so we don't run it again
+        echo "$CURRENT_HASH" > "$HASH_FILE"
+    else
+        echo "Brewfile is unchanged. No installation needed."
+        echo "Tip: Run 'brew upgrade' manually if you just want to update apps."
+    fi
+fi
+
 if [ "$OS_TYPE" == "Linux" ]; then
   echo "Detected Linux."
 
