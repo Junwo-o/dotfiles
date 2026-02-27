@@ -56,6 +56,13 @@ alias ibrew='arch -x86_64 /usr/local/bin/brew'
 alias kickstart='NVIM_APPNAME=kickstart nvim'
 alias lazyvim='NVIM_APPNAME=lazyvim nvim'
 
+# If the server doesn't know what ghostty is, fallback to xterm-256color
+if [[ "$TERM" == "xterm-ghostty" ]]; then
+  if ! infocmp xterm-ghostty >/dev/null 2>&1; then
+    export TERM=xterm-256color
+  fi
+fi
+
 # vim motions within terminal
 bindkey -v
 
