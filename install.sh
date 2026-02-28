@@ -149,6 +149,11 @@ if [[ -n "$ZSH_PATH" && "$SHELL" != "$ZSH_PATH" ]]; then
   fi
 fi
 
+HOSTNAME=$(hostname)
+if [ ! -f ~/.ssh/id_ed25519 ]; then
+    ssh-keygen -t ed25519 -C "junwoo@$HOSTNAME" -N "" -f ~/.ssh/id_ed25519
+fi
+
 # Add this to the very bottom of install.sh if you want
 echo "Installation complete! Reloading shell..."
 
