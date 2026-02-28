@@ -52,22 +52,15 @@ HASH_FILE="$HOME/.brewfile_hash"
 # "./install.sh --brew" in order to sync brew
 if [[ "$1" == "--brew" ]]; then
     echo "Checking Homebrew dependencies..."
-
-    # 1. Generate the current fingerprint (Portable for Mac/Linux)
     if command -v md5 >/dev/null; then
         CURRENT_HASH=$(md5 -q "$BREWFILE")
     else
         CURRENT_HASH=$(md5sum "$BREWFILE" | awk '{ print $1 }')
     fi
-
-    # 2. Compare with the last saved fingerprint
     LAST_HASH=$(cat "$HASH_FILE" 2>/dev/null)
-
     if [ "$CURRENT_HASH" != "$LAST_HASH" ]; then
         echo "Changes detected in Brewfile. Running bundle..."
         brew bundle --file="$BREWFILE" --no-upgrade
-        
-        # 3. Save the new fingerprint so we don't run it again
         echo "$CURRENT_HASH" > "$HASH_FILE"
     else
         echo "Brewfile is unchanged. No installation needed."
@@ -79,14 +72,12 @@ if [ "$OS_TYPE" == "Linux" ]; then
   echo "Detected Linux."
 
   if ! command -v zsh >/dev/null 2>&1; then
-    # Check if we have sudo privileges
     if [ -w "/etc/shadow" ] || sudo -n true 2>/dev/null; then
       echo "Sudo detected. Installing Zsh via apt..."
       sudo apt update && sudo apt install zsh -y
     else
       echo "No sudo privileges. Please ask your admin to install Zsh,"
       echo "or use a portable Zsh binary in ~/bin."
-      # Note: Manual binary installation is complex for Zsh due to dependencies.
     fi
   fi
 fi
@@ -140,8 +131,6 @@ if [[ -n "$ZSH_PATH" && "$SHELL" != "$ZSH_PATH" ]]; then
   if ! grep -q "$ZSH_PATH" /etc/shells; then
     echo "$ZSH_PATH" | sudo tee -a /etc/shells
   fi
-
-  # Platform-specific chsh syntax
   if [ "$OS_TYPE" == "Linux" ]; then
     sudo chsh -s "$ZSH_PATH" "$USER"
   else
@@ -154,7 +143,6 @@ if [ ! -f ~/.ssh/id_ed25519 ]; then
     ssh-keygen -t ed25519 -C "junwoo@$HOSTNAME" -N "" -f ~/.ssh/id_ed25519
 fi
 
-# Add this to the very bottom of install.sh if you want
 echo "Installation complete! Reloading shell..."
 
 exec zsh -l
