@@ -10,7 +10,7 @@ if ! command -v brew >/dev/null 2>&1; then
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
   # On Linux, Homebrew needs to be added to the PATH immediately to be used
-  if [ "$OS_TYPE" == "Linux" ]; then
+  if [[ "$OSTYPE" == "linux-gnu"* ]] || [[ "$OSTYPE" == "linux"* ]]; then
     test -d ~/.linuxbrew && eval "$(~/.linuxbrew/bin/brew shellenv)"
     test -d /home/linuxbrew/.linuxbrew && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
   fi
@@ -45,21 +45,21 @@ HASH_FILE="$HOME/.brewfile_hash"
 
 # "./install.sh --brew" in order to sync brew
 if [[ "$1" == "--brew" ]]; then
-    echo "Checking Homebrew dependencies..."
-    if command -v md5 >/dev/null; then
-        CURRENT_HASH=$(md5 -q "$BREWFILE")
-    else
-        CURRENT_HASH=$(md5sum "$BREWFILE" | awk '{ print $1 }')
-    fi
-    LAST_HASH=$(cat "$HASH_FILE" 2>/dev/null)
-    if [ "$CURRENT_HASH" != "$LAST_HASH" ]; then
-        echo "Changes detected in Brewfile. Running bundle..."
-        brew bundle --file="$BREWFILE" --no-upgrade
-        echo "$CURRENT_HASH" > "$HASH_FILE"
-    else
-        echo "Brewfile is unchanged. No installation needed."
-        echo "Tip: Run 'brew upgrade' manually if you just want to update apps."
-    fi
+  echo "Checking Homebrew dependencies..."
+  if command -v md5 >/dev/null; then
+    CURRENT_HASH=$(md5 -q "$BREWFILE")
+  else
+    CURRENT_HASH=$(md5sum "$BREWFILE" | awk '{ print $1 }')
+  fi
+  LAST_HASH=$(cat "$HASH_FILE" 2>/dev/null)
+  if [ "$CURRENT_HASH" != "$LAST_HASH" ]; then
+    echo "Changes detected in Brewfile. Running bundle..."
+    brew bundle --file="$BREWFILE" --no-upgrade
+    echo "$CURRENT_HASH" >"$HASH_FILE"
+  else
+    echo "Brewfile is unchanged. No installation needed."
+    echo "Tip: Run 'brew upgrade' manually if you just want to update apps."
+  fi
 fi
 
 if [ "$OS_TYPE" == "Linux" ]; then
@@ -74,6 +74,12 @@ if [ "$OS_TYPE" == "Linux" ]; then
       echo "or use a portable Zsh binary in ~/bin."
     fi
   fi
+fi
+
+# Install system dependencies if on Linux
+if [[ "$OSTYPE" == "linux-gnu"* ]] || [[ "$OSTYPE" == "linux"* ]]; then
+  echo "Linux detected: Installing core dev tools..."
+  sudo apt update && sudo apt install -y build-essential curl git
 fi
 
 # Function to create symlinks
@@ -134,7 +140,7 @@ fi
 
 HOSTNAME=$(hostname)
 if [ ! -f ~/.ssh/id_ed25519 ]; then
-    ssh-keygen -t ed25519 -C "junwoo@$HOSTNAME" -N "" -f ~/.ssh/id_ed25519
+  ssh-keygen -t ed25519 -C "junwoo@$HOSTNAME" -N "" -f ~/.ssh/id_ed25519
 fi
 
 echo "Installation complete! Reloading shell..."
