@@ -40,12 +40,6 @@ elif [[ -f /usr/local/bin/brew ]]; then
   eval "$(/usr/local/bin/brew shellenv)"
 fi
 
-# Install everything from your Brewfile
-if [ -f "$DOTFILES_DIR/Brewfile" ]; then
-  echo "Installing packages from Brewfile..."
-  brew bundle --file="$DOTFILES_DIR/Brewfile"
-fi
-
 BREWFILE="$DOTFILES_DIR/Brewfile"
 HASH_FILE="$HOME/.brewfile_hash"
 
