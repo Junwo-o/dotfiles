@@ -143,6 +143,32 @@ if [ ! -f ~/.ssh/id_ed25519 ]; then
   ssh-keygen -t ed25519 -C "junwoo@$HOSTNAME" -N "" -f ~/.ssh/id_ed25519
 fi
 
+DEV_DIR="$HOME/Dev"
+if [ ! -d "$DEV_DIR" ]; then
+    echo "Creating $DEV_DIR..."
+    mkdir -p "$DEV_DIR"
+else
+    echo "$DEV_DIR already exists, skipping creation."
+fi
+cd "$DEV_DIR" || exit
+
+USERNAME="Junwo-o"
+
+REPOS=(
+    "algorithmictrading"
+    "dotfiles"
+)
+
+for REPO in "${REPOS[@]}"; do
+    if [ ! -d "$REPO" ]; then
+        echo "Cloning $REPO..."
+        git clone "https://github.com/$USERNAME/$REPO.git"
+    else
+        echo "$REPO already exists. Pulling latest updates..."
+        (cd "$REPO" && git pull)
+    fi
+done
+
 echo "Installation complete! Reloading shell..."
 
 exec zsh -l
