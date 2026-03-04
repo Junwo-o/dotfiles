@@ -41,7 +41,7 @@ Welcome to my personal development environment. This repo automates the setup of
 To symlink configurations and install dependencies, run the included bootstrap script:
 
 ```bash
-mkdir -p ~/dev && git clone [https://github.com/Junwo-o/dotfiles.git](https://github.com/Junwo-o/dotfiles.git) ~/dev/dotfiles
+mkdir -p ~/dev && git clone https://github.com/Junwo-o/dotfiles.git ~/dev/dotfiles
 cd ~/dev/dotfiles
 chmod +x install.sh
 ./install.sh
