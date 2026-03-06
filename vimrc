@@ -7,8 +7,11 @@ set number
 set relativenumber
 set mouse=a
 
-set noundofile
-" set undofile
+" set noundofile
+silent !mkdir -p ~/.vim/undodir
+set undodir=~/.vim/undodir
+set undofile
+
 set clipboard=unnamedplus
 set clipboard=unnamed
 set breakindent
