@@ -1,13 +1,14 @@
-# Set your preferred font (JetBrains Mono is a solid choice)
 font-family = "JetBrains Mono"
 
 # Set the starting font size
-font-size = 16
+font-size = 19
 
 macos-option-as-alt = true
 
 fullscreen = true
 
-#widened font in order to ASCII Gengar in zshrc
-font-thicken = true
-adjust-cell-width = 10%
+theme = Catppuccin Mocha
+background-blur-radius = 20
+mouse-hide-while-typing = true
+window-decoration = true
+background-opacity = 0.8

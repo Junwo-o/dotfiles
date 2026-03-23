@@ -23,6 +23,8 @@ cat << "EOF"
    `""`""))""`"`""""`
 EOF
 
+export PATH="$PATH:/Applications/Obsidian.app/Contents/MacOS"
+
 # 1. Use the Silicon Homebrew by default
 export PATH="/opt/homebrew/bin:$PATH"
 
