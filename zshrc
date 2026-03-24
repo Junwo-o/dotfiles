@@ -1,5 +1,7 @@
 typeset -U path fpath cdpath
 
+[[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
+
 # Setup Homebrew for Linux and Mac
 for brew_path in /home/linuxbrew/.linuxbrew/bin/brew /opt/homebrew/bin/brew /usr/local/bin/brew; do
     if [[ -x "$brew_path" ]]; then
