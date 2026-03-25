@@ -1,5 +1,6 @@
 # Brewfile
 brew "zsh"
+brew "vim"
 brew "neovim"
 brew "git"
 brew "ripgrep"
@@ -7,3 +8,4 @@ brew "node"
 brew "cloudflared"
 cask "obsidian"
 cask "visual-studio-code"
+cask "telegram"
