@@ -16,18 +16,6 @@ if ! command -v brew >/dev/null 2>&1; then
   fi
 fi
 
-# Ensure brew is available in the current script session
-if [[ -d /home/linuxbrew/.linuxbrew ]]; then
-  # Linux (VMs)
-  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-elif [[ -x /opt/homebrew/bin/brew ]]; then
-  # Apple Silicon Mac (M1 Mac Mini)
-  eval "$(/opt/homebrew/bin/brew shellenv)"
-elif [[ -x /usr/local/bin/brew ]]; then
-  # Intel Mac (MacBook)
-  eval "$(/usr/local/bin/brew shellenv)"
-fi
-
 # Homebrew Setup (Cross-Platform)
 if [[ -f /opt/homebrew/bin/brew ]]; then
   # For M1/M2/M3 Macs
@@ -38,28 +26,6 @@ elif [[ -f /home/linuxbrew/.linuxbrew/bin/brew ]]; then
 elif [[ -f /usr/local/bin/brew ]]; then
   # For Intel Macs
   eval "$(/usr/local/bin/brew shellenv)"
-fi
-
-BREWFILE="$DOTFILES_DIR/Brewfile"
-HASH_FILE="$HOME/.brewfile_hash"
-
-# "./install.sh --brew" in order to sync brew
-if [[ "$1" == "--brew" ]]; then
-  echo "Checking Homebrew dependencies..."
-  if command -v md5 >/dev/null; then
-    CURRENT_HASH=$(md5 -q "$BREWFILE")
-  else
-    CURRENT_HASH=$(md5sum "$BREWFILE" | awk '{ print $1 }')
-  fi
-  LAST_HASH=$(cat "$HASH_FILE" 2>/dev/null)
-  if [ "$CURRENT_HASH" != "$LAST_HASH" ]; then
-    echo "Changes detected in Brewfile. Running bundle..."
-    brew bundle --file="$BREWFILE" --no-upgrade
-    echo "$CURRENT_HASH" >"$HASH_FILE"
-  else
-    echo "Brewfile is unchanged. No installation needed."
-    echo "Tip: Run 'brew upgrade' manually if you just want to update apps."
-  fi
 fi
 
 if [ "$OS_TYPE" == "Linux" ]; then
