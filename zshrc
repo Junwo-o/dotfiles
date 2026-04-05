@@ -33,8 +33,8 @@ export PATH="/opt/homebrew/bin:$PATH"
 # 2. Shortcut for the old Intel version
 alias ibrew='arch -x86_64 /usr/local/bin/brew'
 
-alias kickstart='NVIM_APPNAME=kickstart nvim'
-alias lazyvim='NVIM_APPNAME=lazyvim nvim'
+alias kvim='NVIM_APPNAME=kickstart nvim'
+alias nvim='NVIM_APPNAME=lazyvim nvim'
 
 alias brew-server="brew bundle --file=~/dotfiles/Brewfile.server"
 alias brew-desktop="brew bundle --file=~/dotfiles/Brewfile.desktop"
