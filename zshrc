@@ -34,7 +34,7 @@ export PATH="/opt/homebrew/bin:$PATH"
 alias ibrew='arch -x86_64 /usr/local/bin/brew'
 
 alias kvim='NVIM_APPNAME=kickstart nvim'
-alias nvim='NVIM_APPNAME=lazyvim nvim'
+alias lvim='NVIM_APPNAME=lazyvim nvim'
 
 alias brew-server="brew bundle --file=~/dotfiles/Brewfile.server"
 alias brew-desktop="brew bundle --file=~/dotfiles/Brewfile.desktop"
