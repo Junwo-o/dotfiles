@@ -83,7 +83,7 @@ link_file "$DOTFILES_DIR/lazyvim" "$HOME/.config/lazyvim"
 ZSH_PATH=""
 
 if [[ -f /opt/homebrew/bin/zsh ]]; then
-  ZSH_PATH="/opt/homebrew/bin/zsh" # M1 Mac
+  ZSH_PATH="/opt/homebrew/bin/zsh" # Apple Silicon
 elif [[ -f /usr/local/bin/zsh ]]; then
   ZSH_PATH="/usr/local/bin/zsh" # Intel Mac
 elif [[ -f /home/linuxbrew/.linuxbrew/bin/zsh ]]; then
