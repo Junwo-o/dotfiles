@@ -6,8 +6,8 @@ fi
 cat << "EOF"
 EOF
 
-alias kickstart='NVIM_APPNAME=kickstart nvim'
-alias lazyvim='NVIM_APPNAME=lazyvim nvim'
+alias kvim='NVIM_APPNAME=kickstart nvim'
+alias lvim='NVIM_APPNAME=lazyvim nvim'
 
 # vim motions within terminal (bash equivalent)
 set -o vi
