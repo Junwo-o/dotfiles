@@ -15,16 +15,6 @@ if command -v python3 >/dev/null 2>&1; then
     alias pip='pip3'
 fi
 
-cat << "EOF"
-      `'::::.
-        _____A_
-       /      /\
-    __/__/\__/  \___
----/__|" '' "| /___/\----
-   |''|"'||'"| |' '||
-   `""`""))""`"`""""`
-EOF
-
 export PATH="$PATH:/Applications/Obsidian.app/Contents/MacOS"
 
 # 1. Use the Silicon Homebrew by default
@@ -50,3 +40,5 @@ fi
 bindkey -v
 
 PROMPT='%n@%m:%~%# '
+
+fastfetch
