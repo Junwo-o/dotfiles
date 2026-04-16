@@ -33,15 +33,32 @@
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠙⠿⠏⠀⠀⠀⠈⢧⡝⣾⣿⣿⣿⣿⣾⣿⡼⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⢿⣿⣿⣳⡿⣞⡿⠊⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⠛⠛⠛⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-
 ### 🚀 Overview
-Welcome to my personal development environment. This repo automates the setup of my workstations and home servers, ensuring a consistent workflow across all machines.
+Personal dotfiles for macOS. Uses [GNU Stow](https://www.gnu.org/software/stow/) to manage symlinks across machines.
 
 ### 📦 Quick Start
-To symlink configurations and install dependencies, run the included bootstrap script:
 
 ```bash
-mkdir -p ~/dev && git clone https://github.com/Junwo-o/dotfiles.git ~/dev/dotfiles
-cd ~/dev/dotfiles
-chmod +x install.sh
-./install.sh
+mkdir -p ~/dev && git clone https://github.com/Junwo-o/dotfiles.git ~/Dev/dotfiles
+cd ~/Dev/dotfiles
+chmod +x mac.sh
+./mac.sh
+```
+
+### 🗂 Structure
+Each folder is a stow package that maps to `$HOME`:
+
+zsh/        → ~/.zshrc
+bash/       → ~/.bashrc
+vim/        → ~/.vimrc
+git/        → ~/.gitconfig, ~/.gitignore_global
+ghostty/    → ~/.config/ghostty/config
+ticker/     → ~/.ticker.yaml
+lazyvim/    → ~/.config/lazyvim/
+
+### ➕ Adding a New Config
+```bash
+mkdir -p ~/dev/dotfiles/<package>
+# add your config file with correct path structure
+stow <package>
+```
