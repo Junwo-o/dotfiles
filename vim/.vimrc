@@ -28,18 +28,7 @@ set cursorline
 set scrolloff=10
 set confirm
 
-" Keymaps
-nnoremap <leader>rj :w<CR>:!javac % && java %:r<CR>
-nnoremap <leader>rP :w<CR>:term python3 %<CR>
-nnoremap <leader>rh :w<CR>:!open %<CR>
-nnoremap <leader>rp :w<CR>:!python3 %<CR>
 tnoremap <Esc><Esc> <C-\><C-n>
-
-nnoremap <leader>w :w<CR>
-nnoremap <leader>q :q<CR>
-nnoremap <leader>x :x<CR>
-nnoremap <leader>e :e  
-nnoremap <leader>t :terminal<CR>
 
 nnoremap <Tab> :bnext<CR>
 nnoremap <S-Tab> :bprevious<CR>
