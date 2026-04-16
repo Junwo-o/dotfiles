@@ -39,8 +39,8 @@ Personal dotfiles for macOS. Uses [GNU Stow](https://www.gnu.org/software/stow/)
 ### 📦 Quick Start
 
 ```bash
-mkdir -p ~/dev && git clone https://github.com/Junwo-o/dotfiles.git ~/Dev/dotfiles
-cd ~/Dev/dotfiles
+mkdir -p ~/dev && git clone https://github.com/Junwo-o/dotfiles.git ~/dev/dotfiles
+cd ~/dev/dotfiles
 chmod +x mac.sh
 ./mac.sh
 ```
