@@ -1,9 +1,0 @@
-# Brewfile
-
-brew "zsh"
-brew "vim"
-brew "neovim"
-brew "git"
-brew "ripgrep"
-brew "node"
-brew "tmux"

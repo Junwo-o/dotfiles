@@ -1,5 +1,0 @@
-# Brewfile Server
-include "Brewfile.common"
-
-brew "cloudflared"
-brew "rclone"
