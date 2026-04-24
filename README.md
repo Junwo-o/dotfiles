@@ -58,7 +58,7 @@ lazyvim/    → ~/.config/lazyvim/
 
 ### ➕ Adding a New Config
 ```bash
-mkdir -p ~/dev/dotfiles/<package>
+mkdir -p ~/dotfiles/<package>
 # add your config file with correct path structure
 stow <package>
 ```
