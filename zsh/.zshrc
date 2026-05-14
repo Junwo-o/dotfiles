@@ -41,4 +41,12 @@ bindkey -v
 
 PROMPT='%n@%m:%~%# '
 
+poker_sync() {
+    cd ~/Dev/ACR || return
+    git add --ignore-removal .
+    git commit -m "sync: hand histories $(date +'%Y-%m-%d')"
+    git push origin main
+    cd -
+}
+
 fastfetch
