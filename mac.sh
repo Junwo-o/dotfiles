@@ -36,7 +36,6 @@ USERNAME="Junwo-o"
 
 REPOS=(
   "algorithmictrading"
-  "dotfiles"
   "notes"
   "journal"
   "junwo-o.github.io"
