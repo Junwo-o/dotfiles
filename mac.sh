@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DOTFILES_DIR=~/dev/dotfiles
+DOTFILES_DIR=~/dotfiles
 
 # Install Homebrew if it's missing
 if ! command -v brew >/dev/null 2>&1; then

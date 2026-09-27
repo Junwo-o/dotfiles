@@ -1,6 +1,6 @@
 # Brewfile
 
-brew "zsh"
+# brew "zsh"
 brew "vim"
 brew "neovim"
 brew "git"
