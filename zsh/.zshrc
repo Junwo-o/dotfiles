@@ -2,26 +2,12 @@ typeset -U path fpath cdpath
 
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
 
-# Setup Homebrew for Linux and Mac
-for brew_path in /home/linuxbrew/.linuxbrew/bin/brew /opt/homebrew/bin/brew /usr/local/bin/brew; do
-    if [[ -x "$brew_path" ]]; then
-        eval "$("$brew_path" shellenv)"
-        break
-    fi
-done
-
 if command -v python3 >/dev/null 2>&1; then
     alias python='python3'
     alias pip='pip3'
 fi
 
 export PATH="$PATH:/Applications/Obsidian.app/Contents/MacOS"
-
-# 1. Use the Silicon Homebrew by default
-export PATH="/opt/homebrew/bin:$PATH"
-
-# 2. Shortcut for the old Intel version
-alias ibrew='arch -x86_64 /usr/local/bin/brew'
 
 alias kvim='NVIM_APPNAME=kickstart nvim'
 alias lvim='NVIM_APPNAME=lazyvim nvim'
@@ -40,13 +26,5 @@ fi
 bindkey -v
 
 PROMPT='%n@%m:%~%# '
-
-poker_sync() {
-    cd ~/Dev/ACR || return
-    git add --ignore-removal .
-    git commit -m "sync: hand histories $(date +'%Y-%m-%d')"
-    git push origin main
-    cd -
-}
 
 fastfetch
