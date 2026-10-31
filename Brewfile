@@ -13,6 +13,7 @@ brew "stow"
 tap "achannarasappa/tap"
 brew "achannarasappa/tap/ticker"
 brew "tailscale"
+brew "python"
 
 brew "tmux"
 brew "ddgr"
